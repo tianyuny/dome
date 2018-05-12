@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制div属性</title>
+    <style>
+        .outer {
+            margin: 0 auto;
+            padding: 0;
+            width: 500px;
+            text-align: center;
+        }
+        #div1 {
+            display: block;
+            margin: 10px auto;
+            width: 100px;
+            height: 100px;
+            background: black;
+        }
+    </style>
+    <script>
+        var changeStyle = function(ele, attr, value) {
+            ele.style[attr] = value;
+        };
+        window.onload = function() {
+            var oBtn = document.getElementsByTagName('input'),
+                oDiv = document.getElementById('div1'),
+                oAtt = ['width', 'height', 'background', 'display', 'display'],
+                oVal = ['200px', '200px', 'red', 'none', 'block'];
+            var len = oBtn.length;
+            for (var i = 0; i < len; i++) {
+                !function(i) {
+                    oBtn[i].onclick = function () {
+                        i === len - 1 && (oDiv.style.cssText = '');
+                        changeStyle(oDiv, oAtt[i], oVal[i]);
+                    }
+                }(i);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <input type="button" value="width">
+        <input type="button" value="hight">
+        <input type="button" value="color">
+        <input type="button" value="hide">
+        <input type="button" value="reset">
+        <div id="div1"></div>
+    </div>
+</body>
+</html>
