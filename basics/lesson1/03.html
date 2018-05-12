@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My shopping list</title>
+    <style>
+        .outer {
+            margin: 0 auto;
+            padding: 5px;
+            width: 500px;
+            border: 1px solid #ccc;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li button {
+            font-size: 8px;
+            margin-left: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <h1>My shooping list</h1>
+        <div>
+            <label for="item">Enter a new item:</label>
+            <input type="text" id="item" name="item">
+            <button type="button">Add item</button>
+        </div>
+        <ul>
+        </ul>
+    </div>
+    <script>
+
+        var btn = document.querySelector('button'),
+            input = document.querySelector('#item'),
+            list = document.querySelector('ul');
+        btn.addEventListener('click', function() {
+            var val = input.value.trim();
+            if(val) {
+                var li = document.createElement('li'),
+                    span = document.createElement('span'),
+                    close = document.createElement('button');
+                span.textContent = val;
+                close.textContent = 'Delete';
+                li.appendChild(span);
+                li.appendChild(close);
+                list.appendChild(li);
+                input.value = '';
+            }
+
+        });
+        list.addEventListener('click', function(e) {
+            var del = e.target;
+            if(del.tagName === 'BUTTON') {
+                var li = del.parentNode;
+                li.parentNode.removeChild(li);
+            }
+        });
+
+    </script>
+</body>
+</html>
