@@ -33,31 +33,31 @@
     </div>
     <script>
 
-        var btn = document.querySelector('button'),
-            input = document.querySelector('#item'),
-            list = document.querySelector('ul');
-        btn.addEventListener('click', function() {
-            var val = input.value.trim();
-            if(val) {
-                var li = document.createElement('li'),
-                    span = document.createElement('span'),
-                    close = document.createElement('button');
-                span.textContent = val;
-                close.textContent = 'Delete';
-                li.appendChild(span);
-                li.appendChild(close);
-                list.appendChild(li);
-                input.value = '';
-            }
-
-        });
-        list.addEventListener('click', function(e) {
-            var del = e.target;
-            if(del.tagName === 'BUTTON') {
-                var li = del.parentNode;
-                li.parentNode.removeChild(li);
-            }
-        });
+    var btn = document.querySelector('button'),
+        input = document.querySelector('#item'),
+        list = document.querySelector('ul');
+    btn.addEventListener('click', function() {
+        var val = input.value.trim();
+        if(val) {
+            var li = document.createElement('li'),
+                span = document.createElement('span'),
+                close = document.createElement('button');
+            span.textContent = val;
+            close.textContent = 'Delete';
+            li.appendChild(span);
+            li.appendChild(close);
+            list.appendChild(li);
+            input.value = '';
+        }
+        input.focus();
+    });
+    list.addEventListener('click', function(e) {
+        var del = e.target;
+        if(del.tagName === 'BUTTON') {
+            var li = del.parentNode;
+            li.parentNode.removeChild(li);
+        }
+    });
 
     </script>
 </body>

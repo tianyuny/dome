@@ -19,24 +19,24 @@
         }
     </style>
     <script>
-        var changeStyle = function(ele, attr, value) {
-            ele.style[attr] = value;
-        };
-        window.onload = function() {
-            var oBtn = document.getElementsByTagName('input'),
-                oDiv = document.getElementById('div1'),
-                oAtt = ['width', 'height', 'background', 'display', 'display'],
-                oVal = ['200px', '200px', 'red', 'none', 'block'];
-            var len = oBtn.length;
-            for (var i = 0; i < len; i++) {
-                !function(i) {
-                    oBtn[i].onclick = function () {
-                        i === len - 1 && (oDiv.style.cssText = '');
-                        changeStyle(oDiv, oAtt[i], oVal[i]);
-                    }
-                }(i);
-            }
+    var changeStyle = function(ele, attr, value) {
+        ele.style[attr] = value;
+    };
+    window.onload = function() {
+        var oBtn = document.getElementsByTagName('input'),
+            oDiv = document.getElementById('div1'),
+            oAtt = ['width', 'height', 'background', 'display', 'display'],
+            oVal = ['200px', '200px', 'red', 'none', 'block'];
+        var len = oBtn.length;
+        for (var i = 0; i < len; i++) {
+            !function(i) {
+                oBtn[i].onclick = function () {
+                    i === len - 1 && (oDiv.style.cssText = '');
+                    changeStyle(oDiv, oAtt[i], oVal[i]);
+                }
+            }(i);
         }
+    }
     </script>
 </head>
 <body>

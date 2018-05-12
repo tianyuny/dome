@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片列表：鼠标移入/移出改变图片透明度</title>
+    <style>
+        li {
+            margin: 0;
+            list-style-type: none;
+        }
+        #img-list {
+            margin: 0 auto;
+            padding: 0 0 10px 10px;
+            width: 700px;
+            border: 1px solid #333;
+            overflow: hidden;
+            zoom: 1;
+        }
+        #img-list li {
+            float: left;
+            margin: 10px 10px 0 0;
+            width: 128px;
+            height: 128px;
+            border: 1px solid #ccc;
+        }
+        #img-list li img {
+            float: left;
+            opacity: 0.3;
+            cursor: crosshair;
+        }
+        #img-list li img.current {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul id="img-list">
+        <li><img src="img/1.jpg" /></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+        <li><img src="img/5.jpg" /></li>
+        <li><img src="img/6.jpg" /></li>
+        <li><img src="img/7.jpg" /></li>
+        <li><img src="img/8.jpg" /></li>
+        <li><img src="img/9.jpg" /></li>
+        <li><img src="img/10.jpg" /></li>
+    </ul>
+    <script>
+        var ul = document.getElementById('img-list'),
+            mouse = function (e) {
+                var target = e.target;
+                if(target.tagName === 'IMG') {
+                    var cla;
+                    if(e.type === 'mouseover') {
+                        cla = 'current';
+                    }else {
+                        cla = '';
+                    }
+                    target.className = cla;
+                }
+            };
+        ul.addEventListener('mouseover', mouse);
+        ul.addEventListener('mouseout', mouse);
+    </script>
+</body>
+</html>

@@ -80,17 +80,17 @@
     </style>
     <link rel="stylesheet" href="green.css">
     <script>
-        window.onload = function () {
-            var oLink = document.getElementsByTagName('link')[0],
-                oSkin = document.getElementById('skin').getElementsByTagName('li');
-            for(var i = 0, len = oSkin.length; i < len; i++) {
-                oSkin[i].onclick = function () {
-                    for(var p in oSkin) oSkin[p].className = '';
-                    this.className = 'current';
-                    oLink['href'] = this.id + '.css';
-                };
-            }
+    window.onload = function () {
+        var oLink = document.getElementsByTagName('link')[0],
+            oSkin = document.getElementById('skin').getElementsByTagName('li');
+        for(var i = 0, len = oSkin.length; i < len; i++) {
+            oSkin[i].onclick = function () {
+                for(var p in oSkin) oSkin[p].className = '';
+                this.className = 'current';
+                oLink['href'] = this.id + '.css';
+            };
         }
+    }
     </script>
 </head>
 <body>
